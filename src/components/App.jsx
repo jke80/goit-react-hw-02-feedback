@@ -12,7 +12,8 @@ export class App extends Component {
 
   handelClick = event => {
     this.setState(prevState => {
-      return { [event.target.name]: prevState[event.target.name] + 1 };
+      const { name } = event.target;
+      return { [name]: prevState[name] + 1 };
     });
   };
 
@@ -26,6 +27,10 @@ export class App extends Component {
   }
 
   render() {
+    const { good, neutral, bad } = this.state;
+    const total = this.total();
+    const positivePercentage = this.positivePercentage();
+
     return (
       <div
         style={{
@@ -47,11 +52,11 @@ export class App extends Component {
         {!!this.total() && (
           <Section title="Statistics">
             <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
-              total={this.total()}
-              positivePercentage={this.positivePercentage()}
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
             ></Statistics>
           </Section>
         )}

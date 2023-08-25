@@ -6,12 +6,16 @@ export const StyledButtonList = styled.ul`
   justify-content: center;
   list-style: none;
   padding-left: 0;
-  li {
-  }
+
   button {
     padding: 20px;
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: #aaa;
+    }
   }
 `;
