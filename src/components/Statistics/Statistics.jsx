@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 import { Container } from './Statistics.styled';
 
-export const Statistics = props => {
-  const { good, neutral, bad, total, positivePercentage } = props;
-
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
   return (
     <Container>
       <p>Good: {good}</p>

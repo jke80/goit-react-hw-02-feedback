@@ -30,7 +30,7 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     const total = this.total();
     const positivePercentage = this.positivePercentage();
-
+    const options = Object.keys(this.state);
     return (
       <div
         style={{
@@ -45,11 +45,11 @@ export class App extends Component {
       >
         <Section title="Please leave feedback">
           <FeedBackOptions
-            options={['good', 'neutral', 'bad']}
+            options={options}
             onLeaveFeedback={this.handelClick}
           />
         </Section>
-        {!!this.total() && (
+        {total ? (
           <Section title="Statistics">
             <Statistics
               good={good}
@@ -57,10 +57,11 @@ export class App extends Component {
               bad={bad}
               total={total}
               positivePercentage={positivePercentage}
-            ></Statistics>
+            />
           </Section>
+        ) : (
+          <Notification message="There is no feedback" />
         )}
-        {!this.total() && <Notification message="There is no feedback" />}
       </div>
     );
   }

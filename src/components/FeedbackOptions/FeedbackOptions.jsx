@@ -4,9 +4,9 @@ import { StyledButtonList } from './FeedbackOptions.styled';
 export const FeedBackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <StyledButtonList>
-      {options.map((option, index) => {
+      {options.map(option => {
         return (
-          <li key={index}>
+          <li key={option}>
             <button type="button" name={option} onClick={onLeaveFeedback}>
               {option[0].toUpperCase() + option.slice(1)}
             </button>
